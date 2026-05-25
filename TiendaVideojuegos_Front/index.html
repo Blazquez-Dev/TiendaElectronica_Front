@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%; 
+        }
+        .carousel-control-prev {
+            left: -80px; 
+        }
+        .carousel-control-next {
+            right: -80px;
+        }
+        
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav">
+
+    
+    <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark bg-danger sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-2" href="index.html">Tuti-Enda</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#catalogo">Catálogo</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Categorías</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#catalogo">Consolas</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#contacto">Soporte</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+                    <button class="btn btn-outline-light" data-bs-toggle="offcanvas" data-bs-target="#cartCanvas">
+                        <i class="bi bi-cart3"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header id="inicio" class="carousel slide border-bottom" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#inicio" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#inicio" data-bs-slide-to="1"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/Juegos.png" class="d-block w-100" style="height:400px; object-fit:cover; filter:brightness(0.7);" alt="Gaming">
+                <div class="carousel-caption">
+                    <h2 class="display-4 fw-bold text-danger">Véndenos tus juegos</h2>
+                    <p class="bg-danger text-white d-inline-block">Recibe dinero en efectivo o crédito en tienda al instante.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img/tecnologia.jpg" class="d-block w-100" style="height:400px; object-fit:cover; filter:brightness(0.7);" alt="Tech">
+                <div class="carousel-caption">
+                    <h2 class="display-4 fw-bold text-danger">Tecnología de Ocasión</h2>
+                    <p class="bg-danger text-white d-inline-block">Smartphones y portátiles con 24 meses de garantía.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#inicio" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#inicio" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </header>
+
+    <section id="nosotros" class="container py-5 border-bottom border-1 border-secondary">
+        <div class="row align-items-center g-5">
+            <div class="col-md-6">
+                <h2 class="fw-bold mb-4 text-danger">¿Quiénes somos?</h2>
+                <p class="lead">Tuti-Enda fue fundada en Londres en 1992. Somos líderes mundiales en la compra y venta de productos tecnológicos y de entretenimiento.</p>
+                <p>Nuestra misión es fomentar el reciclaje tecnológico ofreciendo productos de alta calidad a precios competitivos, siempre bajo la filosofía de "Comprar, Vender, Intercambiar".</p>
+                <button class="btn btn-danger fw-bold px-4" data-bs-toggle="modal" data-bs-target="#nosotrosModal">Leer más</button>
+            </div>
+            <div class="col-md-6">
+                <img src="img/tienda.jpg" class="img-fluid rounded shadow" alt="Tienda">
+            </div>
+        </div>
+    </section>
+
+    <section id="catalogo" class="bg-light py-5 border-bottom border-1 border-secondary">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5 text-danger">Catálogo Destacado</h2>
+            <div id="catalogCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row g-4 justify-content-center">
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="card h-100 card-product border-0 shadow-sm ">
+                                    <img src="img/ps5.jpg" class="card-img-top p-3" alt="PS5">
+                                    <div class="card-body text-center d-flex flex-column">
+                                        <h5 class="card-title fw-bold">PS5 Console - Slim</h5>
+                                        <p class="text-danger fw-bold fs-4">420.00 €</p>
+                                        <button class="btn btn-danger fw-bold w-100 mt-auto" data-bs-toggle="offcanvas" data-bs-target="#cartCanvas">Añadir al carrito</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="card h-100 card-product border-0 shadow-sm ">
+                                    <div class="h-250">
+                                    <img src="img/iphone.jpg" class="card-img-top p-3" alt="iPhone">
+                                    </div>
+                                    <div class="card-body text-center d-flex flex-column">
+                                        <h5 class="card-title fw-bold">iPhone 14 Pro Max</h5>
+                                        <p class="text-danger fw-bold fs-4">890.00 €</p>
+                                        <button class="btn btn-danger fw-bold w-100 mt-auto">Añadir al carrito</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="card h-100 card-product border-0 shadow-sm">
+                                    <img src="img/switch.jpg" class="card-img-top p-3" alt="Nintendo">
+                                    <div class="card-body text-center d-flex flex-column">
+                                        <h5 class="card-title fw-bold">Nintendo Switch OLED</h5>
+                                        <p class="text-danger fw-bold fs-4">275.00 €</p>
+                                        <button class="btn btn-danger fw-bold w-100 mt-auto">Añadir al carrito</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row g-4 justify-content-center">
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="card h-100 card-product border-0 shadow-sm">
+                                    <img src="img/ztotk.jpg" class="card-img-top p-3" alt="Zelda">
+                                    <div class="card-body text-center d-flex flex-column">
+                                        <h5 class="card-title fw-bold">Zelda: Tears of Kingdom</h5>
+                                        <p class="text-danger fw-bold fs-4">45.00 €</p>
+                                        <button class="btn btn-danger fw-bold w-100 mt-auto">Añadir al carrito</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="card h-100 card-product border-0 shadow-sm">
+                                    <img src="img/ps3.jpg" class="card-img-top p-3" alt="PS3">
+                                    <div class="card-body text-center d-flex flex-column">
+                                        <h5 class="card-title fw-bold">PS3 Console</h5>
+                                        <p class="text-danger fw-bold fs-4">100.00 €</p>
+                                        <button class="btn btn-danger fw-bold w-100 mt-auto">Añadir al carrito</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="card h-100 card-product border-0 shadow-sm">
+                                    <img src="img/s21.jpg" class="card-img-top p-3" alt="Samsung">
+                                    <div class="card-body text-center d-flex flex-column mt-auto">
+                                        <h5 class="card-title fw-bold">Samsung Galaxy S21</h5>
+                                        <p class="text-danger fw-bold fs-4">275.00 €</p>
+                                        <button class="btn btn-danger fw-bold w-100 mt-auto">Añadir al carrito</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row g-4 justify-content-center">
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="card h-100 card-product border-0 shadow-sm">
+                                    <img src="img/cod.jpg" class="card-img-top p-3" alt="Call of Duty">
+                                    <div class="card-body text-center d-flex flex-column">
+                                        <h5 class="card-title fw-bold">Call of Duty - Modern Warfare</h5>
+                                        <p class="text-danger fw-bold fs-4">20.00 €</p>
+                                        <button class="btn btn-danger fw-bold w-100 mt-auto">Añadir al carrito</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="card h-100 card-product border-0 shadow-sm">
+                                    <img src="img/nes.jpg" class="card-img-top p-3" alt="Nintendo NES">
+                                    <div class="card-body text-center d-flex flex-column">
+                                        <h5 class="card-title fw-bold">Nintendo-NES</h5>
+                                        <p class="text-danger fw-bold fs-4">260.99 €</p>
+                                        <button class="btn btn-danger fw-bold w-100 mt-auto">Añadir al carrito</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="card h-100 card-product border-0 shadow-sm">
+                                    <img src="img/hp.png" class="card-img-top p-3" alt="Portatil HP">
+                                    <div class="card-body text-center d-flex flex-column">
+                                        <h5 class="card-title fw-bold">Portatil HP</h5>
+                                        <p class="text-danger fw-bold fs-4">20.00 €</p>
+                                        <button class="btn btn-danger fw-bold w-100 mt-auto">Añadir al carrito</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#catalogCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#catalogCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="tabla" class="container py-5 border-bottom border-1 border-secondary">
+        <h2 class="fw-bold mb-4 text-center">Disponibilidad por Categorías</h2>
+        <div class="table-responsive shadow-sm rounded">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Categoría</th>
+                        <th>Estado Stock</th>
+                        <th>Garantía</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Consolas Retro</strong></td>
+                        <td><span class="badge bg-success">Alto</span></td>
+                        <td>24 Meses</td>
+                        <td><a href="#" class="btn btn-sm btn-outline-danger">Ver más</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Smartphones Android</strong></td>
+                        <td><span class="badge bg-warning text-dark">Limitado</span></td>
+                        <td>24 Meses</td>
+                        <td><a href="#" class="btn btn-sm btn-outline-danger">Ver más</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Accesorios Gaming</strong></td>
+                        <td><span class="badge bg-danger">Agotado</span></td>
+                        <td>12 Meses</td>
+                        <td><a href="#" class="btn btn-sm btn-outline-secondary disabled">Avisar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="contacto" class="bg-dark text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="text-center fw-bold mb-4">Formulario de Contacto</h2>
+                    <form class="row g-3 needs-validation" novalidate>
+                        <div class="col-md-6">
+                            <label class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" placeholder="Ej: Juan Pérez" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="nombre@ejemplo.com" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Asunto</label>
+                            <select class="form-select" required>
+                                <option value="">Selecciona una opción...</option>
+                                <option>Ventas</option>
+                                <option>Garantías</option>
+                                <option>Soporte Técnico</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Nivel de Urgencia</label>
+                            <div class="pt-2">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="urgencia" id="r1" checked>
+                                    <label class="form-check-label" for="r1">Baja</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="urgencia" id="r2">
+                                    <label class="form-check-label" for="r2">Alta</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Mensaje Detallado</label>
+                            <textarea class="form-control" rows="4" placeholder="Escribe tu consulta aquí..." required></textarea>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="checkTerminos" required>
+                                <label class="form-check-label" for="checkTerminos">Acepto la política de privacidad de Tuti-Enda</label>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center mt-4">
+                            <button class="btn btn-danger fw-bold px-5 py-2" type="submit">Enviar Consulta</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-danger mb-3">Tuti-Enda España</h5>
+                    <p class="small text-secondary">La mayor red de intercambio tecnológico del mundo. Compra, vende y cambia tus juegos y gadgets favoritos.</p>
+                    <div class="d-flex gap-3 fs-4">
+                        <i class="bi bi-facebook"></i><i class="bi bi-twitter-x"></i><i class="bi bi-instagram"></i>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="fw-bold mb-3">Empresa</h5>
+                    <ul class="list-unstyled small text-secondary">
+                        <li><a href="#" class="text-decoration-none text-secondary">Franquicias</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">Trabaja con nosotros</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">Ubicación de tiendas</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="fw-bold mb-3">Soporte</h5>
+                    <ul class="list-unstyled small text-secondary">
+                        <li><a href="#" class="text-decoration-none text-secondary">Garantía de 24 meses</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">Ayuda / FAQ</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">Aviso Legal</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3">Newsletter</h5>
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-dark border-0 text-white" placeholder="Tu email">
+                        <button class="btn btn-danger fw-bold">Unirse</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary">
+            <p class="text-center small text-secondary">&copy; 2026 Tuti-Enda - Proyecto Educativo Salesianos Triana</p>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="nosotrosModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0">
+                <div class="modal-header bg-cex-red text-white">
+                    <h5 class="modal-title fw-bold">Más sobre Tuti-Enda</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <p class="lead">Desde 1992, Tuti-Enda combina pasión por los videojuegos y la tecnología con un modelo sostenible de comercio. Nacimos como una pequeña tienda de intercambio y hoy somos una red internacional que apoya el reciclaje y la segunda vida de consolas, móviles y accesorios.</p>
+                    <p class="lead">Además de comprar y vender, ofrecemos servicios de diagnóstico, reparación rápida y asesoramiento personalizado. Nuestro equipo experto verifica cada producto para garantizar calidad, y nuestros clientes disfrutan de opciones flexibles como garantía extendida y financiación en tienda.</p>
+                    <p class="lead">Creemos en crear una comunidad donde cada jugador y amante de la tecnología pueda mejorar su experiencia sin desperdicio. Por eso impulsamos iniciativas locales, colaboramos con escuelas y promovemos la reutilización con confianza.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0">
+                <div class="modal-header bg-cex-red text-white">
+                    <h5 class="modal-title fw-bold">Bienvenido a Tuti-Enda</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Email de usuario</label>
+                            <input type="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-danger fw-bold w-100 py-2">Iniciar Sesión</button>
+                        <div class="text-center mt-3">
+                            <a href="img/meme.png" class="small text-danger">¿Olvidaste tu contraseña?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" id="cartCanvas">
+        <div class="offcanvas-header bg-dark text-white">
+            <h5 class="offcanvas-title fw-bold">Tu Cesta</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="alert alert-info">¡Tu cesta está vacía!</div>
+            <p>Empieza a explorar nuestro catálogo para añadir los mejores gadgets.</p>
+            <button class="btn btn-danger fw-bold w-100 mt-4" data-bs-dismiss="offcanvas">Seguir comprando</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        (function () {
+          'use strict'
+          var forms = document.querySelectorAll('.needs-validation')
+          Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+              }
+              form.classList.add('was-validated')
+            }, false)
+          })
+        })()
+    </script>
+</body>
+</html>
